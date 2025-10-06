@@ -9,17 +9,17 @@ func segitigaValid_103012300164(a, b, c float64) bool { //Luthfi Iriawan Fadhila
 	if a <= 0 || b <= 0 || c <= 0 {
 		return false
 	}
-	max := maxSisi(a, b, c)
+	max := sisiMax_103012300008(a, b, c)
 	sum := a + b + c - max
 	return max < sum
 }
 
 func equal_103012300351(x, y float64) bool { // Jiyad Arsal Asari
-	syarat:= 0.01 * math.Max(x, y)
-	return math.Abs(x-y) <= syarat
+	syarat := 0.01 * math.Max(x, y)
+	return math.Abs(x-y) <= syarat
 }
 
-func KlasifikasiSegitiga_103012300521(a, b, c float64) string {// Mahardika Naufal
+func KlasifikasiSegitiga_103012300521(a, b, c float64) string { // Mahardika Naufal
 	if !segitigaValid_103012300164(a, b, c) {
 		return "Tidak dapat membentuk segitiga."
 	}
@@ -28,7 +28,7 @@ func KlasifikasiSegitiga_103012300521(a, b, c float64) string {// Mahardika Nauf
 		return "Segitiga Sama Sisi (Equilateral)"
 	}
 
-	max := maxSisi(a, b, c)
+	max := sisiMax_103012300008(a, b, c)
 	var s1, s2 float64
 	if max == a {
 		s1, s2 = b, c
@@ -49,11 +49,25 @@ func KlasifikasiSegitiga_103012300521(a, b, c float64) string {// Mahardika Nauf
 	return "Segitiga Bebas (Scalene)"
 }
 
-func sisiMax_103012300008(a, b, c float64) float64{// Achmad Azhar Faiz Sabiq
+func sisiMax_103012300008(a, b, c float64) float64 { // Achmad Azhar Faiz Sabiq
 	if a >= b && a >= c {
 		return a
 	} else if b >= a && b >= c {
 		return b
 	}
 	return c
+}
+
+func main() { // Dirgantara Mulyanda 103012300286
+	var a, b, c float64
+	fmt.Println("=== Program Penentu Jenis Segitiga ===")
+	fmt.Print("Masukkan sisi a: ")
+	fmt.Scan(&a)
+	fmt.Print("Masukkan sisi b: ")
+	fmt.Scan(&b)
+	fmt.Print("Masukkan sisi c: ")
+	fmt.Scan(&c)
+
+	result := KlasifikasiSegitiga_103012300521(a, b, c)
+	fmt.Println("Hasil:", result)
 }
