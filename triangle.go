@@ -19,3 +19,32 @@ func equal_103012300351(x, y float64) bool { // Jiyad Arsal Asari
 	return math.Abs(x-y) <= syarat
 }
 
+func KlasifikasiSegitiga_103012300521(a, b, c float64) string {
+	if !segitigaValid_103012300164(a, b, c) {
+		return "Tidak dapat membentuk segitiga."
+	}
+
+	if equal_103012300351(a, b) && equal_103012300351(b, c) {
+		return "Segitiga Sama Sisi (Equilateral)"
+	}
+
+	max := maxSisi(a, b, c)
+	var s1, s2 float64
+	if max == a {
+		s1, s2 = b, c
+	} else if max == b {
+		s1, s2 = a, c
+	} else {
+		s1, s2 = a, b
+	}
+
+	if equal_103012300351(max*max, s1*s1+s2*s2) {
+		return "Segitiga Siku-Siku (Right Triangle)"
+	}
+
+	if equal_103012300351(a, b) || equal_103012300351(b, c) || equal_103012300351(a, c) {
+		return "Segitiga Sama Kaki (Isosceles)"
+	}
+
+	return "Segitiga Bebas (Scalene)"
+}
