@@ -19,7 +19,7 @@ func equal_103012300351(x, y float64) bool { // Jiyad Arsal Asari
 	return math.Abs(x-y) <= syarat
 }
 
-func KlasifikasiSegitiga_103012300521(a, b, c float64) string {
+func KlasifikasiSegitiga_103012300521(a, b, c float64) string {// Mahardika Naufal
 	if !segitigaValid_103012300164(a, b, c) {
 		return "Tidak dapat membentuk segitiga."
 	}
@@ -47,4 +47,13 @@ func KlasifikasiSegitiga_103012300521(a, b, c float64) string {
 	}
 
 	return "Segitiga Bebas (Scalene)"
+}
+
+func sisiMax_103012300008(a, b, c float64) float64{// Achmad Azhar Faiz Sabiq
+	if a >= b && a >= c {
+		return a
+	} else if b >= a && b >= c {
+		return b
+	}
+	return c
 }
