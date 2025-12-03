@@ -11,7 +11,7 @@ func segitigaValid_103012300164(a, b, c float64) bool { //Luthfi Iriawan Fadhila
 	}
 	max := sisiMax_103012300008(a, b, c)
 	sum := a + b + c - max
-	return max < sum
+	return max <= sum
 }
 
 func equal_103012300351(x, y float64) bool { // Jiyad Arsal Asari
